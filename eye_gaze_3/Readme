@@ -1,0 +1,5 @@
+other than the eye the rectangle part covering the eye consume more computational power 
+so the eyes were filtered out by removing the unwanted parts with the help of the face landmark point feature of OpenCv
+
+
+as the image of the eye is not enough to get needed accuracy the head pose also considered as a key feature to detect the gaze.

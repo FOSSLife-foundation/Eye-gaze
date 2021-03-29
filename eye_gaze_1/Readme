@@ -1,0 +1,25 @@
+The first scratch
+*** eye_gaze_1 ***
+
+The first scratch programe to detect ege gaze
+
+
+*** Train ***
+
+1. Screen was divided into 100 grids
+2. images of the face while looking each of the grid were taken and named corresponding to the grid coordinates
+3.the images were taken from the directory and gray scalled
+4. using OpenCv the eyes were detected and the left eye was cropped and attached in a array 
+5. the model was created with two columns having the lable in one column and the image of the left eye in the other column.
+
+*** predict **
+
+The video feed from the camera is taken as the input 
+
+the left eye was cropped and crosschecked with the model and the sequential pattern prediction is has beeen made to predict the coordinates of the gaze.
+
+the predicted coordinates were shown as a red dot in the frame itself.
+
+
+
+Note : The accuracy of the system is very low as we jus used ine element the image and also as we used only the left eye image.
