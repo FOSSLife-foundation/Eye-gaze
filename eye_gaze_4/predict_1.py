@@ -1,7 +1,7 @@
 import keras
 import cv2
 import numpy as np
-import tensorflow
+#import tensorflow
 import dlib
 import os
 import sys
@@ -101,13 +101,15 @@ while True:
             print("no")
         #img = cv2.circle(frame, (int(prediction[0]/10 * gray.shape[1]), int(prediction[1]/10 * gray.shape[0] )), radius=5, color=(0, 0, 255), thickness=-1)
         #cv2.putText(frame,"x:" + str(prediction[0] )+ ",        y:" + str(prediction[1]), (120, 420), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
-        if ( int(prediction[0]) < 3 ) & (int(prediction[1]) < 4 ) :
+        if ( 1.5 < int(prediction[0]) < 4.5 ) & (2 < int(prediction[1]) < 6 ) :
+            cv2.putText(frame, " CENTER" ,  (230, 250), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 255, 0), 2)
+        elif ( int(prediction[0]) < 3 ) & (int(prediction[1]) < 4 ) :
             cv2.putText(frame, " LEFT_UP" ,  (55, 64), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 255, 0), 2)
-        if ( int(prediction[0]) > 3 ) & (int(prediction[1]) < 4 ) :
+        elif ( int(prediction[0]) > 3 ) & (int(prediction[1]) < 4 ) :
+            cv2.putText(frame, "LEFT_DOWN" ,  (70, 380), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 255, 0), 2)
+        elif (int(prediction[0]) < 3 ) & (int(prediction[1]) > 4) :
             cv2.putText(frame, " RIGHT_UP" ,  (475, 82), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 255, 0), 2)
-        if (int(prediction[0]) < 3 ) & (int(prediction[1]) > 4) :
-            cv2.putText(frame, " LEFT_DOWN" ,  (70, 380), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 255, 0), 2)
-        if (int(prediction[0]) > 3 ) & (int(prediction[1]) > 4) :
+        elif (int(prediction[0]) > 3 ) & (int(prediction[1]) > 4) :
             cv2.putText(frame, " RIGHT_DOWN" ,  (400, 400), cv2.FONT_HERSHEY_DUPLEX, 0.9, (0, 255, 0), 2)
         cv2.imshow("result", frame)
         if cv2.waitKey(5) & 0xFF == 27:
